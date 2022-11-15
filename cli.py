@@ -21,20 +21,19 @@ if __name__ == '__main__':
         # TODO: Input a move from the player.
         instream = input("Player{} please choose a position in format x,y to place chess:".format(player))
         x,y=getInput(instream,board)
-        if (x, y) == (-1, -1):
-            print("Wrong input, please input coordinate in format x,y!")
-            continue
+        # 判断输入是否符合规范 if (x, y) == (-1, -1):
+            #print("Wrong input, please input coordinate in format x,y!")
+            #continue
         # TODO: Update the board.
         board=moveChess(player,x,y,board)
         winner=get_winner(board)
         # TODO: Update who's turn it is.
         player=other_player(player)
-        Turn+=1
+        Turn+=1 # 相当于 Turn = Turn+1
         if Turn==9:
             break
     print(getprintBoard(board))
     if winner==None:
         print("Draw!")
     else:
-        player = other_player(player)
-        print("Player{} win the game!".format(player))
+        print("Player{} win the game!".format(winner)) #.表示后面的东西是前面的类成员，format是字符串类的一种成员函数
